@@ -1,0 +1,76 @@
+<html DOCTYPE= 'html'>
+    <header>
+        <title>Image proceesing API developed with FastAPI</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/style.css">
+    </header>
+    <body>
+        <h1>Image proceesing API developed with FastAPI</h1>
+        <h2>Upload an image</h2>
+        <!--form to upload an image and send it to the API in main.py -->
+        <form method="post" enctype="multipart/form-data" action="/binarize_image">
+            <label for="image">Select an image:</label>
+            <input type="file" id="image" name="image"><br>
+          
+            <label for="method">Binarization method:</label>
+            <input type="text" id="method" name="method" >
+          
+            <label for="k">k value (for Niblack method):</label>
+            <input type="number" id="k" name="k" step="0.1" value="-0.2"><br>
+          
+            <label for="window_size">Window size (for Niblack and Sauvola methods):</label>
+            <input type="number" id="window_size" name="window_size" value="15"><br>
+          
+            <input type="submit" value="Submit">
+          </form>
+          
+          When the form is submitted, the binarize_image_api function will be called with the selected image file and the values of the method, k, and window_size parameters set to the values selected in the form.
+          
+        <!--form to apply preprocess function in image  -->
+        <form method="post" enctype="multipart/form-data" action="/preprocess_image">
+            <label for="image">Select an image:</label>
+            <input type="file" id="image" name="image"><br>
+          
+            <label for="greyMmethod">greyscale method:</label>
+            <input type="text" id="greyMmethod" name="greyMmethod" >
+          
+            <label for="noiseMethod">noise removal method:</label>
+            <input type="text" id="noiseMethod" name="noiseMethod" >
+          
+            <input type="submit" value="Submit">
+          </form>normalization test
+          <h1>Normalization</h1>
+          <form method="post" enctype="multipart/form-data" action="/normalize/contrast_stretching">
+            <label for="image">Select an image:</label>
+            <input type="file" id="image" name="image"><br>
+            <label for="method">normalization method:</label>
+            <input type="number" id="angle" name="angle" step="1" value="0"><br>
+            <input type="submit" value="Submit">
+          </form>
+        <h2>API documentation</h2>
+        <p>API documentation is available at <a href="http://" target="_blank" rel="noopener noreferrer">http://</a></p>
+
+        <h2>Source code</h2>
+        <p>Source code is available at <a href="    " target="_blank" rel="noopener noreferrer">    </a></p>
+
+        <h2>Author</h2>
+        <p>Author: <a href="    " target="_blank" rel="noopener noreferrer">    </a></p>
+
+        <h2>License</h2>
+        <p>License: <a href="    " target="_blank" rel="noopener noreferrer">    </a></p>
+
+        <h2>Version</h2>
+        <p>Version: <a href="    " target="_blank" rel="noopener noreferrer">    </a></p>
+
+        <h2>Changelog</h2>
+        <p>Changelog: <a href="    " target="_blank" rel="noopener noreferrer">    </a></p>
+
+        <h2>Dependencies</h2>
+        <p>Dependencies: <a href="    " target="_blank" rel="noopener noreferrer">    </a></p>
+
+        <h2>Installation</h2>
+        <p>Installation: <a href="    " target="_blank" rel="noopener noreferrer">    </a></p>
+
+        
+    </body>
+</html>
