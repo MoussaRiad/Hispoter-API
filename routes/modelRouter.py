@@ -45,3 +45,36 @@ async def predict(image: UploadFile = File(...)):
     # Return the ranked list of words as a response
     return {"predictions": predicted_words}
 
+@model.post('/fine-tuning')
+async def fine_tuning(image: UploadFile = File(...), label: str = Form(...)):
+    # Read the uploaded image
+    image_data = await image.read()
+
+    # Convert image data to NumPy array
+    nparr = np.frombuffer(image_data, np.uint8)
+
+    # Decode the array as an image
+    img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+
+    # Reshape the image for the model input
+    input_img = np.expand_dims(img, axis=0)
+
+    # Get the one-hot encoded label
+    label_one_hot = np.zeros((1, len(word_list)))
+    label_index = word_list.index(label)
+    label_one_hot[0, label_index] = 1
+
+    # Train the model on the image
+    model.train_on_batch(input_img, label_one_hot)
+
+    # Return a success response
+    return {"message": "Model fine-tuned successfully"}
+
+# @model.post('/train')
+
+@model.post('/models/code')
+async def get_model_code():
+    # Get the model code
+    code = None
+    return {"code": code}
+

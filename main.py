@@ -19,7 +19,7 @@ import tensorflow as tf
 from keras.models import load_model
 
 from services import preprocess_image, normalize_image, apply_contrast_stretching, save_image, read_image, binarize_image ,get_file_size
-
+import router
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
